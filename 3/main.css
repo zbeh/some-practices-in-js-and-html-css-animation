@@ -1,0 +1,148 @@
+body{
+    background-color:#242121;
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+a{
+    text-decoration: none;
+}
+.btn{
+    color: black;
+    padding: 1rem 3rem;
+    background:linear-gradient(to right, cyan 50%, transparent 50%);
+    background-size:100%;
+    transition: .5s;
+    transform:scaleX(1);
+    transform: scaleY(1);
+}
+.btn:hover{
+  background-size: 200%;
+}
+nav{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+nav a{
+    color: cyan;
+    padding: 1rem 3rem;
+    position: relative;
+    display:inline-block;
+    overflow: hidden;
+}
+nav a::after{
+    content: "";
+    background:red;
+    width: 100% ;
+    transform:scaleX(0);
+    display:inline-block;
+    position: absolute;
+    height: 2px;
+    bottom: 0%;
+    left:0%;
+    transition: .5s;
+}
+nav a:hover::after{
+    left: 0%;
+    transform: scaleX(1);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+.text_1 {
+    animation: text1;
+  }
+  .text_2 {
+    animation: text2;
+  }
+  .text_1, .text_2 {
+    position:absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    animation-duration: 10s;
+    animation-timing-function: steps(25, end);
+    animation-iteration-count: infinite;
+    color: thistle;
+    font-weight: bold;
+  }
+  .text_1{
+      left:18%
+  }
+  .text_2{
+    left:17%
+}
+  .text_1::after, .text_2::after {
+    content: "|";
+    animation: caret infinite;
+    animation-duration: 1s;
+    animation-timing-function: steps(1, end);
+  }
+  @keyframes text2 {
+    0%, 50%, 100% {
+      width: 0;
+    }
+    
+    60%, 90% {
+      width: 13em;
+    }
+  }
+  @keyframes text1 {
+    0%, 50%, 100% {
+      width: 0;
+    }
+    10%, 40% {
+      width: 9em;
+    }
+  }
+ h1{
+    position: relative;
+    color: thistle;
+ }
+.z{
+    position: absolute;
+    top:0%;
+}
+.anime{
+    width: 50px;
+    height: 50px;
+    background-color: #66f190;
+    border: 1px solid white;
+    animation: moving 5s linear infinite alternate forwards;
+    margin: 5% 0;
+    text-align: center;
+    color: white;
+}
+@keyframes moving {
+    0% {margin-left: 0%;}
+    25%{margin-left: 25%; transform:scale(3,3)}
+    50%{margin-left: 50%; transform: rotate(-180deg);}
+    75%{margin-left: 75%; transform:scale(3,3)}
+    100%{margin-left: 90%; transform: scale(1,1,1);}
+}
+@media screen and (max-width: 768px){
+    header{
+        flex-direction: column;
+        margin-top: 8%;
+    }
+    .text_1, .text_2{
+        left: 32%;
+    }
+}
+
+@media screen and (max-width: 480px){
+ .intro{
+     display: none;
+    }
+}
